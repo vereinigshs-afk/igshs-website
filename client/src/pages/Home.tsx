@@ -1,5 +1,6 @@
 import { siteContent } from "@/lib/content";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -86,12 +87,16 @@ const Hero = () => (
           {siteContent.hero.subtitle}
         </p>
         <div className="flex flex-wrap gap-4 pt-4">
-          <Button size="lg" className="rounded-none h-12 px-8 text-base bg-destructive hover:bg-destructive/90 text-white border-none">
-            {siteContent.hero.primaryButton}
-          </Button>
-          <Button size="lg" variant="outline" className="rounded-none h-12 px-8 text-base border-2">
-            {siteContent.hero.secondaryButton}
-          </Button>
+          <Link href="/mitglied-werden">
+            <Button size="lg" className="rounded-none h-12 px-8 text-base bg-destructive hover:bg-destructive/90 text-white border-none">
+              {siteContent.hero.primaryButton}
+            </Button>
+          </Link>
+          <a href="#about">
+            <Button size="lg" variant="outline" className="rounded-none h-12 px-8 text-base border-2">
+              {siteContent.hero.secondaryButton}
+            </Button>
+          </a>
         </div>
       </div>
       <div className="md:col-span-5 relative mt-12 md:mt-0">
@@ -177,9 +182,11 @@ const ElectionWidget = () => {
           </div>
           
           <div className="pt-8">
-             <Button className="bg-white text-foreground hover:bg-slate-200 rounded-none h-12 px-8">
-               {siteContent.election.cta}
-             </Button>
+            <Link href="/mitglied-werden">
+              <Button className="bg-white text-foreground hover:bg-slate-200 rounded-none h-12 px-8">
+                {siteContent.election.cta}
+              </Button>
+            </Link>
           </div>
         </div>
         
