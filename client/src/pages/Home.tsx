@@ -203,7 +203,7 @@ const ElectionWidget = () => {
 };
 
 const TopicsGrid = () => (
-  <section id="topics" className="py-24">
+  <section id="schwerpunkte" className="py-24 scroll-mt-20">
     <div className="container">
       <h2 className="text-3xl font-bold mb-16 border-b-2 border-foreground pb-4 inline-block pr-12">
         Unsere Schwerpunkte
@@ -234,7 +234,7 @@ const TopicsGrid = () => (
 );
 
 const ContactSection = () => (
-  <section id="contact" className="py-24 bg-slate-50 border-t border-border">
+  <section id="kontakt" className="py-24 bg-slate-50 border-t border-border scroll-mt-20">
     <div className="container swiss-grid">
       <div className="md:col-span-5 space-y-8">
         <h2 className="text-3xl font-bold">{siteContent.contact.title}</h2>

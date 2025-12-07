@@ -10,3 +10,9 @@
 - [x] Frontend: Status-Änderungs-Dialog
 - [x] Tests: Unit-Tests für Admin-Procedures
 - [x] Route: /admin in App.tsx registrieren
+
+## Navigation Smooth-Scrolling
+
+- [x] IDs zu Sektionen hinzufügen (news, topics, contact)
+- [x] Navigation-Links mit Anchor-Links aktualisieren
+- [x] Smooth-Scrolling CSS hinzufügen

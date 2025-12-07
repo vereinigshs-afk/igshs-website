@@ -23,10 +23,10 @@ export const siteContent = {
     logoText: "IGSHS",
   },
   navigation: [
-    { label: "Aktuelles", href: "#news" },
-    { label: "Schwerpunkte", href: "#topics" },
+    { label: "Aktuelles", href: "#aktuelles" },
+    { label: "Schwerpunkte", href: "#schwerpunkte" },
     { label: "Über uns", href: "#about" },
-    { label: "Kontakt", href: "#contact" },
+    { label: "Kontakt", href: "#kontakt" },
   ],
   hero: {
     title: "Gemeinsam für unser Quartier.",
