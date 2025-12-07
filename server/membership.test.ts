@@ -8,6 +8,7 @@ import * as notification from "./_core/notification";
 vi.mock("./db", () => ({
   createMembershipApplication: vi.fn(),
   getAllMembershipApplications: vi.fn(),
+  updateMembershipApplicationStatus: vi.fn(),
   getDb: vi.fn(),
   upsertUser: vi.fn(),
   getUserByOpenId: vi.fn(),
@@ -97,8 +98,20 @@ describe("membership.submit", () => {
 });
 
 describe("membership.list", () => {
-  it("should return all membership applications", async () => {
+  it("should return all membership applications for admin users", async () => {
     const ctx = createMockContext();
+    // Make user an admin
+    ctx.user = {
+      id: 1,
+      openId: "admin-user",
+      email: "admin@example.com",
+      name: "Admin User",
+      loginMethod: "manus",
+      role: "admin",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      lastSignedIn: new Date(),
+    };
     const caller = appRouter.createCaller(ctx);
 
     const mockApplications = [
@@ -122,5 +135,80 @@ describe("membership.list", () => {
 
     expect(result).toEqual(mockApplications);
     expect(db.getAllMembershipApplications).toHaveBeenCalled();
+  });
+
+  it("should reject non-admin users", async () => {
+    const ctx = createMockContext();
+    // Make user a regular user
+    ctx.user = {
+      id: 2,
+      openId: "regular-user",
+      email: "user@example.com",
+      name: "Regular User",
+      loginMethod: "manus",
+      role: "user",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      lastSignedIn: new Date(),
+    };
+    const caller = appRouter.createCaller(ctx);
+
+    await expect(caller.membership.list()).rejects.toThrow();
+  });
+});
+
+describe("membership.updateStatus", () => {
+  it("should update status for admin users", async () => {
+    const ctx = createMockContext();
+    ctx.user = {
+      id: 1,
+      openId: "admin-user",
+      email: "admin@example.com",
+      name: "Admin User",
+      loginMethod: "manus",
+      role: "admin",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      lastSignedIn: new Date(),
+    };
+    const caller = appRouter.createCaller(ctx);
+
+    vi.mocked(db.updateMembershipApplicationStatus as any).mockResolvedValue(
+      undefined
+    );
+
+    const result = await caller.membership.updateStatus({
+      id: 1,
+      status: "approved",
+    });
+
+    expect(result.success).toBe(true);
+    expect(db.updateMembershipApplicationStatus).toHaveBeenCalledWith(
+      1,
+      "approved"
+    );
+  });
+
+  it("should reject non-admin users from updating status", async () => {
+    const ctx = createMockContext();
+    ctx.user = {
+      id: 2,
+      openId: "regular-user",
+      email: "user@example.com",
+      name: "Regular User",
+      loginMethod: "manus",
+      role: "user",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      lastSignedIn: new Date(),
+    };
+    const caller = appRouter.createCaller(ctx);
+
+    await expect(
+      caller.membership.updateStatus({
+        id: 1,
+        status: "approved",
+      })
+    ).rejects.toThrow();
   });
 });

@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { InsertUser, users, membershipApplications, InsertMembershipApplication } from "../drizzle/schema";
 import { ENV } from './_core/env';
@@ -111,5 +111,26 @@ export async function getAllMembershipApplications() {
     return [];
   }
 
-  return await db.select().from(membershipApplications);
+  return await db.select().from(membershipApplications).orderBy(desc(membershipApplications.createdAt));
+}
+
+/**
+ * Update membership application status
+ */
+export async function updateMembershipApplicationStatus(
+  id: number,
+  status: "pending" | "approved" | "rejected"
+) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  await db
+    .update(membershipApplications)
+    .set({ 
+      status,
+      processedAt: new Date(),
+    })
+    .where(eq(membershipApplications.id, id));
 }

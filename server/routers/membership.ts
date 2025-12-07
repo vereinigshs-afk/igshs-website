@@ -1,6 +1,7 @@
 import { z } from "zod";
-import { publicProcedure, router } from "../_core/trpc";
-import { createMembershipApplication, getAllMembershipApplications } from "../db";
+import { publicProcedure, protectedProcedure, router } from "../_core/trpc";
+import { TRPCError } from "@trpc/server";
+import { createMembershipApplication, getAllMembershipApplications, updateMembershipApplicationStatus } from "../db";
 import { notifyOwner } from "../_core/notification";
 
 const membershipApplicationSchema = z.object({
@@ -49,9 +50,40 @@ Bitte überprüfen Sie die Anmeldung im Admin-Bereich.
     }),
 
   /**
-   * Get all membership applications (admin only in future)
+   * Get all membership applications (admin only)
    */
-  list: publicProcedure.query(async () => {
+  list: protectedProcedure.query(async ({ ctx }) => {
+    if (ctx.user.role !== "admin") {
+      throw new TRPCError({
+        code: "FORBIDDEN",
+        message: "Nur Administratoren können Mitgliedschafts-Anmeldungen einsehen.",
+      });
+    }
     return await getAllMembershipApplications();
   }),
+
+  /**
+   * Update membership application status (admin only)
+   */
+  updateStatus: protectedProcedure
+    .input(
+      z.object({
+        id: z.number(),
+        status: z.enum(["pending", "approved", "rejected"]),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      if (ctx.user.role !== "admin") {
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: "Nur Administratoren können den Status ändern.",
+        });
+      }
+
+      await updateMembershipApplicationStatus(input.id, input.status);
+
+      return {
+        success: true,
+      };
+    }),
 });
