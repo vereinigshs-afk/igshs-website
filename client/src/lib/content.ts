@@ -57,6 +57,15 @@ export const siteContent = {
   },
   news: [
     {
+      id: 4,
+      date: "08.12.2025",
+      category: "Veranstaltung",
+      title: "Kennenlernen mit Felix Gless - 16. Januar 2026",
+      excerpt: "Treffen Sie Felix Gless persönlich! Am Freitag, 16. Januar 2026 um 18:00 Uhr im Gemeindezentrum Brüelmatt.",
+      content: `**Lernen Sie Felix Gless kennen!**\n\nAm **Freitag, 16. Januar 2026 um 18:00 Uhr** laden wir Sie herzlich ein, Felix Gless persönlich kennenzulernen. Die Veranstaltung findet im **Gemeindezentrum Brüelmatt** in Birmensdorf statt.\n\n**Über Felix Gless**\n\nFelix Gless ist 41 Jahre alt, verheiratet und Vater von zwei Kindern. Seit 2015 wohnt er mit seiner Familie in Birmensdorf und engagiert sich aktiv für die Gemeinschaft.\n\n**Beruflicher Hintergrund**\n\n- Studium der Rechtswissenschaften an der Universität Zürich\n- Rechtsanwalt mit eigener Kanzlei in Zürich\n- Spezialisiert auf Vertragsrecht und Gemeinderechtsfragen\n\n**Politische Erfahrung**\n\n- Seit 2019 Mitglied der Geschäftsprüfungskommission (GPK) Birmensdorf\n- Aktives Mitglied der FDP Birmensdorf\n- Engagement für transparente Verwaltung und bürgernahe Politik\n\n**Seine Schwerpunkte**\n\n1. **Bildung & Familien**: Qualitativ hochwertige Schulen und Kinderbetreuung\n2. **Verkehr & Infrastruktur**: Sichere Schulwege und nachhaltige Mobilität\n3. **Finanzen**: Verantwortungsvoller Umgang mit Steuergeldern\n4. **Lebensqualität**: Erhalt des dörflichen Charakters bei gleichzeitiger Entwicklung\n\n**Warum Felix Gless?**\n\n"Birmensdorf ist meine Heimat geworden. Ich möchte mich aktiv dafür einsetzen, dass unsere Gemeinde lebenswert bleibt – für Familien, Senioren und alle Generationen. Meine juristische Expertise und meine Erfahrung in der GPK helfen mir, komplexe Sachverhalte zu verstehen und pragmatische Lösungen zu finden."\n\n**Programm der Veranstaltung**\n\n- 18:00 Uhr: Begrüssung und Vorstellung\n- 18:15 Uhr: Felix Gless stellt seine Schwerpunkte vor\n- 18:45 Uhr: Offene Fragerunde\n- 19:30 Uhr: Apéro und persönliche Gespräche\n\n**Anmeldung**\n\nEine Anmeldung ist nicht erforderlich, aber wir freuen uns über eine kurze Rückmeldung an info@igshs.ch für die Planung.\n\n**Gemeinsam für Birmensdorf!**\n\nWir freuen uns auf Ihr Kommen und einen spannenden Austausch!`,
+      link: "/news/4",
+    },
+    {
       id: 1,
       date: "08.12.2025",
       category: "Veranstaltung",

@@ -213,9 +213,9 @@ const ElectionWidget = () => {
         
         <div className="md:col-span-6 relative h-full min-h-[400px] bg-slate-800 border border-white/10 overflow-hidden">
            <img 
-             src="/images/felix-gless.png" 
+             src="/images/felix-gless-new.png" 
              alt={siteContent.election.candidate.imageAlt}
-             className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
+             className="w-full h-full object-cover object-center opacity-90 hover:opacity-100 transition-opacity duration-500"
            />
         </div>
       </div>

@@ -35,3 +35,10 @@
 - [x] Route /news/:id in App.tsx registrieren
 - [x] Links von News-Karten zu Detailseiten aktualisieren
 - [x] Zurück-Button implementieren
+
+## Kandidaten-Bild & Veranstaltung
+
+- [x] Neues Felix Gless Bild ins Projekt kopieren
+- [x] Kandidaten-Bild in Home.tsx ersetzen
+- [x] News-Artikel für Veranstaltung 16.01.2026 erstellen
+- [x] Detailseite mit Flyer-Inhalt füllen
