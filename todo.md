@@ -16,3 +16,14 @@
 - [x] IDs zu Sektionen hinzufügen (news, topics, contact)
 - [x] Navigation-Links mit Anchor-Links aktualisieren
 - [x] Smooth-Scrolling CSS hinzufügen
+
+## Navigation & Content Updates
+
+- [x] Vereinsinformationen aktualisieren (Birmensdorf statt Schliern)
+- [x] Kandidaten-Informationen aktualisieren (Felix Gless statt Hans Muster)
+- [x] Kandidaten-Bild einbinden (FelixGless.png)
+- [x] "Über uns"-Sektion erstellen mit ID #about
+- [x] "Mehr erfahren"-Button zu #about verlinken
+- [x] "Alle News"-Link funktional machen
+- [x] Einzelne News-Artikel klickbar machen
+- [x] Alle Smooth-Scrolling Links testen

@@ -92,7 +92,16 @@ const Hero = () => (
               {siteContent.hero.primaryButton}
             </Button>
           </Link>
-          <a href="#about">
+          <a 
+            href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.getElementById('about');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+          >
             <Button size="lg" variant="outline" className="rounded-none h-12 px-8 text-base border-2">
               {siteContent.hero.secondaryButton}
             </Button>
@@ -115,18 +124,35 @@ const Hero = () => (
 );
 
 const NewsSection = () => (
-  <section id="news" className="py-24 bg-slate-50">
+  <section id="aktuelles" className="py-24 bg-slate-50 scroll-mt-20">
     <div className="container">
       <div className="flex items-baseline justify-between mb-16 border-b-2 border-foreground pb-4">
         <h2 className="text-3xl font-bold tracking-tight">Aktuelles</h2>
-        <a href="#" className="text-sm font-medium hover:text-destructive flex items-center gap-1">
+        <a 
+          href="#aktuelles" 
+          className="text-sm font-medium hover:text-destructive flex items-center gap-1 cursor-pointer"
+          onClick={(e) => {
+            e.preventDefault();
+            const element = document.getElementById('aktuelles');
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }}
+        >
           Alle News <ArrowRight className="h-4 w-4" />
         </a>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {siteContent.news.map((item) => (
-          <article key={item.id} className="group cursor-pointer flex flex-col h-full bg-background border border-border p-6 hover:border-destructive transition-colors duration-300">
+          <article 
+            key={item.id} 
+            className="group cursor-pointer flex flex-col h-full bg-background border border-border p-6 hover:border-destructive transition-colors duration-300"
+            onClick={() => {
+              // Placeholder: In Zukunft zu einzelner News-Seite navigieren
+              window.location.href = `#news-${item.id}`;
+            }}
+          >
             <div className="flex items-center justify-between text-xs font-mono text-muted-foreground mb-4">
               <span>{item.date}</span>
               <span className="uppercase tracking-wider text-destructive">{item.category}</span>
@@ -192,7 +218,7 @@ const ElectionWidget = () => {
         
         <div className="md:col-span-6 relative h-full min-h-[400px] bg-slate-800 border border-white/10 overflow-hidden">
            <img 
-             src="/images/candidate-portrait.png" 
+             src="/images/felix-gless.png" 
              alt={siteContent.election.candidate.imageAlt}
              className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
            />
@@ -228,6 +254,58 @@ const TopicsGrid = () => (
             </div>
           );
         })}
+      </div>
+    </div>
+  </section>
+);
+
+const AboutSection = () => (
+  <section id="about" className="py-24 bg-background scroll-mt-20">
+    <div className="container max-w-4xl">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl font-bold mb-4">{siteContent.about.title}</h2>
+        <p className="text-xl text-muted-foreground">{siteContent.about.subtitle}</p>
+      </div>
+      
+      <div className="space-y-12">
+        <div className="prose prose-lg max-w-none">
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            {siteContent.about.content}
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-slate-50 p-8 border-l-4 border-destructive">
+            <h3 className="text-2xl font-bold mb-4">{siteContent.about.mission}</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              {siteContent.about.missionText}
+            </p>
+          </div>
+          
+          <div className="bg-slate-50 p-8 border-l-4 border-destructive">
+            <h3 className="text-2xl font-bold mb-4">{siteContent.about.history}</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              {siteContent.about.historyText}
+            </p>
+          </div>
+        </div>
+        
+        <div className="mt-12">
+          <h3 className="text-2xl font-bold mb-8 text-center">Unsere Herausforderungen</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            {siteContent.about.challenges.map((challenge, idx) => (
+              <div key={idx} className="flex gap-4 items-start">
+                <div className="flex-shrink-0 w-8 h-8 bg-destructive text-white flex items-center justify-center font-bold">
+                  {idx + 1}
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg mb-2">{challenge.title}</h4>
+                  <p className="text-muted-foreground">{challenge.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -328,6 +406,7 @@ export default function Home() {
         <NewsSection />
         <ElectionWidget />
         <TopicsGrid />
+        <AboutSection />
         <ContactSection />
       </main>
       <Footer />
