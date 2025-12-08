@@ -52,3 +52,9 @@
 - [x] Newsletter-Button erstellen
 - [x] "Newsletter abonnieren" als Dropdown-Option im Formular
 - [x] News-Grid um Gemeinde-Events erweitern
+
+## Fiktive News entfernen
+
+- [x] Quartierfest 2026 entfernen
+- [x] Schulbus-Taktung entfernen
+- [x] Protokoll der Hauptversammlung entfernen

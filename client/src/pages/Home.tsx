@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Upload, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Upload, CheckCircle2, School, Building2, Car, Users } from "lucide-react";
 import { useState } from "react";
 
 // --- Components ---
@@ -124,7 +124,7 @@ const Hero = () => (
         <div className="aspect-[4/5] bg-slate-100 relative z-10 overflow-hidden">
            <img 
              src="/images/hero-schliern.png" 
-             alt={siteContent.hero.imageAlt}
+             alt="IGSHS Quartiere"
              className="w-full h-full object-cover"
            />
         </div>
@@ -201,23 +201,23 @@ const ElectionWidget = () => {
           
           <div className="pt-8 border-t border-white/20 mt-8">
             <blockquote className="text-2xl font-serif italic leading-relaxed text-white mb-6">
-              "{siteContent.election.candidate.slogan}"
+              "{siteContent.election.candidateQuote}"
             </blockquote>
             <div className="flex items-center gap-4">
               <div className="h-12 w-12 bg-slate-700 rounded-full overflow-hidden">
                  {/* Candidate Avatar Placeholder */}
               </div>
               <div>
-                <div className="font-bold">{siteContent.election.candidate.name}</div>
-                <div className="text-sm text-slate-400">{siteContent.election.candidate.role}</div>
+                <div className="font-bold">{siteContent.election.candidateName}</div>
+                <div className="text-sm text-slate-400">{siteContent.election.candidateRole}</div>
               </div>
             </div>
           </div>
           
           <div className="pt-8">
-            <Link href="/mitglied-werden">
+            <Link href={siteContent.election.ctaLink}>
               <Button className="bg-white text-foreground hover:bg-slate-200 rounded-none h-12 px-8">
-                {siteContent.election.cta}
+                {siteContent.election.ctaButton}
               </Button>
             </Link>
           </div>
@@ -225,8 +225,8 @@ const ElectionWidget = () => {
         
         <div className="md:col-span-6 relative h-full min-h-[400px] bg-slate-800 border border-white/10 overflow-hidden">
            <img 
-             src="/images/felix-gless-new.png" 
-             alt={siteContent.election.candidate.imageAlt}
+             src={siteContent.election.candidateImage}
+             alt={siteContent.election.candidateName}
              className="w-full h-full object-cover object-center opacity-90 hover:opacity-100 transition-opacity duration-500"
            />
         </div>
@@ -235,36 +235,45 @@ const ElectionWidget = () => {
   );
 };
 
-const TopicsGrid = () => (
-  <section id="schwerpunkte" className="py-24 scroll-mt-20">
-    <div className="container">
-      <h2 className="text-3xl font-bold mb-16 border-b-2 border-foreground pb-4 inline-block pr-12">
-        Unsere Schwerpunkte
-      </h2>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
-        {siteContent.topics.map((topic) => {
-          const Icon = topic.icon;
-          return (
-            <div key={topic.id} className="flex gap-6 group">
-              <div className="flex-shrink-0">
-                <div className="h-14 w-14 bg-slate-100 flex items-center justify-center group-hover:bg-destructive group-hover:text-white transition-colors duration-300">
-                  <Icon className="h-7 w-7" />
+const TopicsGrid = () => {
+  const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+    School,
+    Building2,
+    Car,
+    Users,
+  };
+
+  return (
+    <section id="schwerpunkte" className="py-24 scroll-mt-20">
+      <div className="container">
+        <h2 className="text-3xl font-bold mb-16 border-b-2 border-foreground pb-4 inline-block pr-12">
+          Unsere Schwerpunkte
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+          {siteContent.topics.map((topic) => {
+            const Icon = iconMap[topic.icon];
+            return (
+              <div key={topic.id} className="flex gap-6 group">
+                <div className="flex-shrink-0">
+                  <div className="h-14 w-14 bg-slate-100 flex items-center justify-center group-hover:bg-destructive group-hover:text-white transition-colors duration-300">
+                    {Icon && <Icon className="h-7 w-7" />}
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-3">{topic.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {topic.description}
+                  </p>
                 </div>
               </div>
-              <div>
-                <h3 className="text-2xl font-bold mb-3">{topic.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {topic.description}
-                </p>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const AboutSection = () => (
   <section id="about" className="py-24 bg-background scroll-mt-20">
@@ -274,45 +283,15 @@ const AboutSection = () => (
         <p className="text-xl text-muted-foreground">{siteContent.about.subtitle}</p>
       </div>
       
-      <div className="space-y-12">
-        <div className="prose prose-lg max-w-none">
-          <p className="text-lg leading-relaxed text-muted-foreground">
-            {siteContent.about.content}
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-slate-50 p-8 border-l-4 border-destructive">
-            <h3 className="text-2xl font-bold mb-4">{siteContent.about.mission}</h3>
+      <div className="space-y-8">
+        {siteContent.about.sections.map((section, idx) => (
+          <div key={idx} className="bg-slate-50 p-8 border-l-4 border-destructive">
+            <h3 className="text-2xl font-bold mb-4">{section.title}</h3>
             <p className="text-muted-foreground leading-relaxed">
-              {siteContent.about.missionText}
+              {section.content}
             </p>
           </div>
-          
-          <div className="bg-slate-50 p-8 border-l-4 border-destructive">
-            <h3 className="text-2xl font-bold mb-4">{siteContent.about.history}</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              {siteContent.about.historyText}
-            </p>
-          </div>
-        </div>
-        
-        <div className="mt-12">
-          <h3 className="text-2xl font-bold mb-8 text-center">Unsere Herausforderungen</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            {siteContent.about.challenges.map((challenge, idx) => (
-              <div key={idx} className="flex gap-4 items-start">
-                <div className="flex-shrink-0 w-8 h-8 bg-destructive text-white flex items-center justify-center font-bold">
-                  {idx + 1}
-                </div>
-                <div>
-                  <h4 className="font-bold text-lg mb-2">{challenge.title}</h4>
-                  <p className="text-muted-foreground">{challenge.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
