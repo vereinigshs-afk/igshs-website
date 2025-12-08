@@ -145,14 +145,8 @@ const NewsSection = () => (
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {siteContent.news.map((item) => (
-          <article 
-            key={item.id} 
-            className="group cursor-pointer flex flex-col h-full bg-background border border-border p-6 hover:border-destructive transition-colors duration-300"
-            onClick={() => {
-              // Placeholder: In Zukunft zu einzelner News-Seite navigieren
-              window.location.href = `#news-${item.id}`;
-            }}
-          >
+          <Link key={item.id} href={`/news/${item.id}`}>
+            <article className="group cursor-pointer flex flex-col h-full bg-background border border-border p-6 hover:border-destructive transition-colors duration-300">
             <div className="flex items-center justify-between text-xs font-mono text-muted-foreground mb-4">
               <span>{item.date}</span>
               <span className="uppercase tracking-wider text-destructive">{item.category}</span>
@@ -169,6 +163,7 @@ const NewsSection = () => (
               </span>
             </div>
           </article>
+          </Link>
         ))}
       </div>
     </div>

@@ -27,3 +27,11 @@
 - [x] "Alle News"-Link funktional machen
 - [x] Einzelne News-Artikel klickbar machen
 - [x] Alle Smooth-Scrolling Links testen
+
+## News-Detailseiten
+
+- [x] News-Daten um vollständigen Text erweitern
+- [x] NewsDetail-Komponente erstellen
+- [x] Route /news/:id in App.tsx registrieren
+- [x] Links von News-Karten zu Detailseiten aktualisieren
+- [x] Zurück-Button implementieren

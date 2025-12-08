@@ -62,7 +62,8 @@ export const siteContent = {
       category: "Veranstaltung",
       title: "Quartierfest 2026: Save the Date!",
       excerpt: "Unser nächstes Quartierfest findet im Sommer 2026 statt. Helferinnen und Helfer sind herzlich willkommen!",
-      link: "#",
+      content: `Das jährliche Quartierfest der IGSHS ist ein Höhepunkt im Gemeinschaftsleben unserer Quartiere Stöcken, Haslen und Sternen. Nach dem grossen Erfolg im letzten Jahr freuen wir uns, das nächste Fest für Sommer 2026 anzukündigen.\n\n**Was erwartet Sie?**\n\nEin buntes Programm für die ganze Familie: Live-Musik, Kinderspiele, regionale Kulinarik und viel Raum für Begegnungen. Das Fest findet traditionell auf dem Dorfplatz statt und bringt Nachbarn zusammen.\n\n**Wir suchen Helferinnen und Helfer!**\n\nOhne freiwillige Unterstützung wäre ein solches Fest nicht möglich. Wir suchen noch Helfer für:\n\n- Grillstand und Getränkeausgabe\n- Auf- und Abbau\n- Kinderbetreuung und Spiele\n- Dekoration\n\nInteressiert? Melden Sie sich bei uns unter info@igshs.ch. Jede helfende Hand zählt!\n\n**Save the Date: Sommer 2026**\n\nDer genaue Termin wird in den kommenden Wochen bekannt gegeben. Wir freuen uns auf ein rauschendes Fest mit Ihnen!`,
+      link: "/news/1",
     },
     {
       id: 2,
@@ -70,7 +71,8 @@ export const siteContent = {
       category: "Verkehr",
       title: "Schulbus-Taktung: Erfolg!",
       excerpt: "Dank unserer Eingabe wurde die Schulbus-Verbindung verbessert. Mehr Sicherheit für unsere Kinder.",
-      link: "#",
+      content: `Ein wichtiger Erfolg für die IGSHS: Nach monatelangen Verhandlungen mit der Gemeinde Birmensdorf wurde die Schulbus-Taktung für unsere Quartiere deutlich verbessert.\n\n**Das Problem**\n\nDer Schulweg von Stöcken, Haslen und Sternen ins Dorfzentrum ist lang und führt entlang der stark befahrenen Zürcherstrasse. Viele Eltern waren besorgt um die Sicherheit ihrer Kinder, insbesondere in den dunklen Wintermonaten.\n\n**Unsere Eingabe**\n\nDie IGSHS hat im Frühjahr 2025 eine detaillierte Eingabe bei der Gemeinde eingereicht, in der wir eine bessere Schulbus-Anbindung gefordert haben. Unterstützt von über 120 Unterschriften aus den Quartieren konnten wir den Druck erhöhen.\n\n**Die Lösung**\n\nAb Januar 2026 gelten folgende Verbesserungen:\n\n- **Zusätzliche Morgenfahrt** um 7:15 Uhr ab Haltestelle Sternen/WSL\n- **Verlängerte Nachmittagsfahrten** bis 17:00 Uhr\n- **Neue Haltestelle** bei der Kreuzung Haslen\n\nDamit wird der Schulweg für unsere Kinder deutlich sicherer und komfortabler.\n\n**Dank an alle Unterstützer**\n\nDieser Erfolg wäre ohne die breite Unterstützung aus den Quartieren nicht möglich gewesen. Vielen Dank an alle, die unterschrieben und sich engagiert haben!`,
+      link: "/news/2",
     },
     {
       id: 3,
@@ -78,7 +80,8 @@ export const siteContent = {
       category: "Mitglieder",
       title: "Protokoll der Hauptversammlung",
       excerpt: "Das Protokoll der letzten HV ist nun für alle Mitglieder im internen Bereich verfügbar.",
-      link: "#",
+      content: `Die ordentliche Hauptversammlung der IGSHS fand am 10. November 2025 im Gemeindezentrum Brüelmatt statt. Rund 45 Mitglieder nahmen teil und diskutierten die wichtigsten Themen für unsere Quartiere.\n\n**Wichtigste Beschlüsse**\n\n1. **Jahresrechnung 2024 genehmigt**: Die Rechnung schliesst mit einem kleinen Plus ab. Die Mitgliederbeiträge bleiben unverändert bei CHF 30 pro Jahr.\n\n2. **Vorstand wiedergewählt**: Der gesamte Vorstand wurde für eine weitere Amtsperiode bestätigt.\n\n3. **Schwerpunkte 2026**: Die Versammlung beschloss, den Fokus auf folgende Themen zu legen:\n   - Sicherer Schulweg (Fortsetzung)\n   - Lärmschutz entlang der Zürcherstrasse\n   - Quartierentwicklung und Bauvorhaben\n\n**Protokoll verfügbar**\n\nDas vollständige Protokoll ist ab sofort für alle Mitglieder verfügbar. Sie können es per E-Mail unter info@igshs.ch anfordern oder im internen Mitgliederbereich herunterladen.\n\n**Nächste Versammlung**\n\nDie nächste Hauptversammlung findet voraussichtlich im November 2026 statt. Der genaue Termin wird rechtzeitig bekannt gegeben.\n\nWir danken allen Teilnehmenden für die konstruktiven Diskussionen und das Engagement!`,
+      link: "/news/3",
     },
   ],
   election: {
