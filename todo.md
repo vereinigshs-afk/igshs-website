@@ -58,3 +58,10 @@
 - [x] Quartierfest 2026 entfernen
 - [x] Schulbus-Taktung entfernen
 - [x] Protokoll der Hauptversammlung entfernen
+
+## Korrekturen
+
+- [x] Felix Gless Informationen korrigieren (XING + PDF)
+- [x] Newsletter-Button Farbe zu Dunkelblau ändern
+- [x] Kandidaten-Bild mit zweiter Version ersetzen
+- [x] IGSHS Adresse zu "Rütistrasse 17, 8903 Birmensdorf" ändern

@@ -327,7 +327,7 @@ const ContactSection = () => (
               element.scrollIntoView({ behavior: 'smooth' });
             }
           }}>
-            <Button variant="outline" className="rounded-none h-11 px-6 border-slate-900 hover:bg-slate-900 hover:text-white">
+            <Button className="rounded-none h-11 px-6 bg-slate-900 text-white hover:bg-slate-800">
               Newsletter abonnieren
             </Button>
           </a>

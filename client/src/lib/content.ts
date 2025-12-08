@@ -42,14 +42,15 @@ Felix Gless ist 41 Jahre alt, verheiratet und Vater von zwei Kindern. Seit 2015 
 
 **Beruflicher Hintergrund**
 
-- Studium der Rechtswissenschaften an der Universität Zürich
-- Rechtsanwalt mit eigener Kanzlei in Zürich
-- Spezialisiert auf Vertragsrecht und Gemeinderechtsfragen
+- Wirtschaftsingenieur (Master of Science, Karlsruhe Institute of Technology)
+- Business Law (Masters & LLM) in Zürich & USA (ZHAW, ISDE, Tulane University)
+- Contract Manager Lead bei Kanadevia Inova AG
+- Spezialisiert auf Vertragsrecht, Projektmanagement und Legal Tech
+- Zertifizierter Project Management Professional (PMP)
 
 **Politische Erfahrung**
 
 - Seit 2019 Mitglied der Geschäftsprüfungskommission (GPK) Birmensdorf
-- Aktives Mitglied der FDP Birmensdorf
 - Engagement für transparente Verwaltung und bürgernahe Politik
 
 **Seine Schwerpunkte**
@@ -267,7 +268,7 @@ Wir freuen uns auf Ihr Kommen und wünschen Ihnen einen guten Start ins neue Jah
     title: "Kontakt",
     text: "Haben Sie ein Anliegen, eine Idee oder möchten Sie Mitglied werden? Wir freuen uns auf Ihre Nachricht.",
     email: "vereinigshs@gmail.com",
-    address: "IGSHS, Postfach 123, 8903 Birmensdorf",
+    address: "IGSHS, Rütistrasse 17, 8903 Birmensdorf",
     form: {
       categories: [
         "Newsletter abonnieren",
