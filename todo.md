@@ -65,3 +65,8 @@
 - [x] Newsletter-Button Farbe zu Dunkelblau ändern
 - [x] Kandidaten-Bild mit zweiter Version ersetzen
 - [x] IGSHS Adresse zu "Rütistrasse 17, 8903 Birmensdorf" ändern
+
+## Wahl-Box entfernen
+
+- [x] "Mehr erfahren"-Button in ElectionWidget entfernen
+- [x] Wahl-Box komplett ausblenden (isVisible: false)

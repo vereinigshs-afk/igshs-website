@@ -202,7 +202,7 @@ Wir freuen uns auf Ihr Kommen und wünschen Ihnen einen guten Start ins neue Jah
     },
   ],
   election: {
-    isVisible: true, // Schalter: true = Box anzeigen, false = ausblenden
+    isVisible: false, // Schalter: true = Box anzeigen, false = ausblenden
     title: "Gemeinderat-Wahlen 8. März 2026",
     subtitle: "Unterstützen Sie Felix Gless für den Gemeinderat Birmensdorf",
     candidateName: "Felix Gless",
