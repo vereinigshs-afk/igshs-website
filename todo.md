@@ -42,3 +42,13 @@
 - [x] Kandidaten-Bild in Home.tsx ersetzen
 - [x] News-Artikel für Veranstaltung 16.01.2026 erstellen
 - [x] Detailseite mit Flyer-Inhalt füllen
+
+## Gemeinde-Events & Newsletter
+
+- [x] E-Mail-Adressen von info@igshs.ch zu vereinigshs@gmail.com ändern
+- [x] Backend-API für Birmensdorf Events erstellen (nicht benötigt - statische Daten)
+- [x] Events von Birmensdorf-Website scrapen
+- [x] "Mitglied werden"-Button im Header hinzufügen
+- [x] Newsletter-Button erstellen
+- [x] "Newsletter abonnieren" als Dropdown-Option im Formular
+- [x] News-Grid um Gemeinde-Events erweitern

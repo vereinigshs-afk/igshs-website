@@ -30,17 +30,24 @@ const Header = () => {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-8">
-          {siteContent.navigation.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-sm font-medium hover:text-destructive transition-colors"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        <div className="hidden md:flex items-center gap-8">
+          <nav className="flex gap-8">
+            {siteContent.navigation.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-sm font-medium hover:text-destructive transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          <Link href="/mitglied-werden">
+            <Button className="rounded-none h-10 px-6 bg-destructive hover:bg-destructive/90 text-white border-none">
+              Mitglied werden
+            </Button>
+          </Link>
+        </div>
 
         {/* Mobile Menu Toggle */}
         <button
@@ -69,6 +76,11 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
+            <Link href="/mitglied-werden">
+              <Button className="rounded-none w-full h-12 bg-destructive hover:bg-destructive/90 text-white border-none" onClick={() => setIsMenuOpen(false)}>
+                Mitglied werden
+              </Button>
+            </Link>
           </nav>
         </div>
       )}
@@ -326,6 +338,20 @@ const ContactSection = () => (
               {siteContent.contact.email}
             </a>
           </div>
+        </div>
+        
+        <div className="pt-6">
+          <a href="#kontakt" onClick={(e) => {
+            e.preventDefault();
+            const element = document.getElementById('kontakt');
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}>
+            <Button variant="outline" className="rounded-none h-11 px-6 border-slate-900 hover:bg-slate-900 hover:text-white">
+              Newsletter abonnieren
+            </Button>
+          </a>
         </div>
       </div>
       
