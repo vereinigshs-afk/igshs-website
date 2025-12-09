@@ -214,13 +214,7 @@ const ElectionWidget = () => {
             </div>
           </div>
           
-          <div className="pt-8">
-            <Link href={siteContent.election.ctaLink}>
-              <Button className="bg-white text-foreground hover:bg-slate-200 rounded-none h-12 px-8">
-                {siteContent.election.ctaButton}
-              </Button>
-            </Link>
-          </div>
+
         </div>
         
         <div className="md:col-span-6 relative h-full min-h-[400px] bg-slate-800 border border-white/10 overflow-hidden">

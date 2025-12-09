@@ -70,3 +70,8 @@
 
 - [x] News-Artikel "Kennenlernen mit Felix Gless" (ID 4) aus content.ts entfernen
 - [x] Detailseite /news/4 wird automatisch nicht mehr erreichbar sein
+
+## UI-Anpassungen
+
+- [x] "Mehr erfahren"-Button aus Wahl-Box entfernen
+- [x] "Made with Manus" Branding-Badge entfernen (war nicht vorhanden)
