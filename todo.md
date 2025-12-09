@@ -65,3 +65,8 @@
 - [x] Newsletter-Button Farbe zu Dunkelblau ändern
 - [x] Kandidaten-Bild mit zweiter Version ersetzen
 - [x] IGSHS Adresse zu "Rütistrasse 17, 8903 Birmensdorf" ändern
+
+## Felix Gless News-Artikel entfernen
+
+- [x] News-Artikel "Kennenlernen mit Felix Gless" (ID 4) aus content.ts entfernen
+- [x] Detailseite /news/4 wird automatisch nicht mehr erreichbar sein
