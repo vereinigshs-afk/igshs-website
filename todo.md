@@ -58,3 +58,13 @@
 - [x] Quartierfest 2026 entfernen
 - [x] Schulbus-Taktung entfernen
 - [x] Protokoll der Hauptversammlung entfernen
+
+## Footer, Datenschutz-Checkbox & Datei-Upload
+
+- [x] Impressum-Seite erstellen
+- [x] Datenschutz-Seite erstellen
+- [x] Statuten-Link im Footer hinzufügen (/statuten.pdf)
+- [x] Datenschutz-Checkbox im Kontaktformular als Pflichtfeld
+- [x] Backend: Datei-Upload-API für Bilder/PDFs (max 10MB)
+- [x] Frontend: Datei-Upload-Funktionalität integrieren
+- [x] Tests für Upload-Funktionalität schreiben

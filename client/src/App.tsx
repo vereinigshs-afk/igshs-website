@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import NewsDetail from "./pages/NewsDetail";
 import MembershipForm from "./pages/MembershipForm";
 import AdminDashboard from "./pages/AdminDashboard";
+import Impressum from "./pages/Impressum";
+import Datenschutz from "./pages/Datenschutz";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -17,6 +19,8 @@ function Router() {
       <Route path={"/news/:id"} component={NewsDetail} />
       <Route path={"/mitglied-werden"} component={MembershipForm} />
       <Route path={"/admin"} component={AdminDashboard} />
+      <Route path={"/impressum"} component={Impressum} />
+      <Route path={"/datenschutz"} component={Datenschutz} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

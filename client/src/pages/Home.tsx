@@ -11,8 +11,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Upload, CheckCircle2, School, Building2, Car, Users } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight, Upload, CheckCircle2, School, Building2, Car, Users, FileText, X } from "lucide-react";
+import React, { useState } from "react";
 
 // --- Components ---
 
@@ -297,7 +297,38 @@ const AboutSection = () => (
   </section>
 );
 
-const ContactSection = () => (
+const ContactSection = () => {
+  const [uploadedFile, setUploadedFile] = React.useState<File | null>(null);
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp', 'application/pdf'];
+      if (!allowedTypes.includes(file.type)) {
+        alert('Ungültiger Dateityp. Nur Bilder (JPEG, PNG, GIF, WebP) und PDFs sind erlaubt.');
+        return;
+      }
+      if (file.size > 10 * 1024 * 1024) {
+        alert('Datei ist zu groß. Maximale Dateigröße ist 10MB.');
+        return;
+      }
+      setUploadedFile(file);
+    }
+  };
+
+  const handleUploadClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleRemoveFile = () => {
+    setUploadedFile(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
+  return (
   <section id="kontakt" className="py-24 bg-slate-50 border-t border-border scroll-mt-20">
     <div className="container swiss-grid">
       <div className="md:col-span-5 space-y-8">
@@ -366,19 +397,60 @@ const ContactSection = () => (
             <Textarea placeholder="Ihre Nachricht an uns..." className="min-h-[150px] rounded-none border-slate-300 focus-visible:ring-destructive" />
           </div>
           
-          <div className="flex items-center justify-between pt-4">
-            <Button variant="outline" className="gap-2 rounded-none border-dashed">
-              <Upload className="h-4 w-4" /> Datei anhängen
-            </Button>
-            <Button type="submit" className="bg-destructive hover:bg-destructive/90 text-white rounded-none px-8">
-              Absenden
-            </Button>
+          <div className="space-y-4 pt-4">
+            <div className="flex items-center gap-2">
+              <input type="checkbox" id="privacy-checkbox" required className="h-4 w-4 rounded border-slate-300 text-destructive focus:ring-destructive" />
+              <label htmlFor="privacy-checkbox" className="text-sm text-muted-foreground">
+                Ich habe die{" "}
+                <a href="/datenschutz" target="_blank" className="text-destructive hover:underline">
+                  Datenschutzerklärung
+                </a>
+                {" "}gelesen und akzeptiere sie. *
+              </label>
+            </div>
+            {uploadedFile && (
+              <div className="flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded">
+                <FileText className="h-4 w-4 text-slate-600" />
+                <span className="text-sm text-slate-700 flex-1">{uploadedFile.name}</span>
+                <span className="text-xs text-slate-500">
+                  {(uploadedFile.size / 1024).toFixed(1)} KB
+                </span>
+                <button
+                  type="button"
+                  onClick={handleRemoveFile}
+                  className="text-destructive hover:text-destructive/80"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+            )}
+            <div className="flex items-center justify-between">
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*,.pdf"
+                onChange={handleFileSelect}
+                className="hidden"
+              />
+              <Button
+                type="button"
+                variant="outline"
+                className="gap-2 rounded-none border-dashed"
+                onClick={handleUploadClick}
+              >
+                <Upload className="h-4 w-4" /> Datei anhängen
+              </Button>
+              <Button type="submit" className="bg-destructive hover:bg-destructive/90 text-white rounded-none px-8">
+                Absenden
+              </Button>
+            </div>
           </div>
         </form>
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const Footer = () => (
   <footer className="bg-foreground text-background py-12 border-t border-white/10">
