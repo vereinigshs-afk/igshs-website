@@ -214,7 +214,13 @@ const ElectionWidget = () => {
             </div>
           </div>
           
-
+          <div className="pt-8">
+            <Link href={siteContent.election.ctaLink}>
+              <Button className="bg-white text-foreground hover:bg-slate-200 rounded-none h-12 px-8">
+                {siteContent.election.ctaButton}
+              </Button>
+            </Link>
+          </div>
         </div>
         
         <div className="md:col-span-6 relative h-full min-h-[400px] bg-slate-800 border border-white/10 overflow-hidden">
@@ -321,7 +327,7 @@ const ContactSection = () => (
               element.scrollIntoView({ behavior: 'smooth' });
             }
           }}>
-            <Button className="rounded-none h-11 px-6 bg-slate-900 text-white hover:bg-slate-800">
+            <Button variant="outline" className="rounded-none h-11 px-6 border-slate-900 hover:bg-slate-900 hover:text-white">
               Newsletter abonnieren
             </Button>
           </a>
