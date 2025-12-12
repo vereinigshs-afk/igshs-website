@@ -68,3 +68,9 @@
 - [x] Backend: Datei-Upload-API für Bilder/PDFs (max 10MB)
 - [x] Frontend: Datei-Upload-Funktionalität integrieren
 - [x] Tests für Upload-Funktionalität schreiben
+
+## Hero-Image, Felix Gless Bild & Statuten-PDF
+
+- [x] Hero-Image mit "IGSHS Quartiere Collage.png" ersetzen
+- [x] Felix Gless Bild mit Version 2 ersetzen
+- [x] Statuten-PDF ins Projekt kopieren und verlinken (bereits erledigt)

@@ -123,8 +123,8 @@ const Hero = () => (
       <div className="md:col-span-5 relative mt-12 md:mt-0">
         <div className="aspect-[4/5] bg-slate-100 relative z-10 overflow-hidden">
            <img 
-             src="/images/hero-schliern.png" 
-             alt="IGSHS Quartiere"
+             src="/images/hero-quartiere.png" 
+             alt="IGSHS Quartiere Collage"
              className="w-full h-full object-cover"
            />
         </div>
