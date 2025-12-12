@@ -75,3 +75,10 @@
 
 - [x] "Mehr erfahren"-Button aus Wahl-Box entfernen
 - [x] "Made with Manus" Branding-Badge entfernen (war nicht vorhanden)
+
+## Impressum & Datenschutz Seiten
+
+- [x] Impressum-Seite erstellen (client/src/pages/Impressum.tsx)
+- [x] Datenschutz-Seite erstellen (client/src/pages/Datenschutz.tsx)
+- [x] Routen in App.tsx registrieren
+- [x] Footer-Links aktualisieren

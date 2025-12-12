@@ -226,10 +226,10 @@ Wir freuen uns auf Ihr Kommen und wünschen Ihnen einen guten Start ins neue Jah
     },
   },
   footer: {
-    copyright: "© 2025 IGSHS. Alle Rechte vorbehalten.",
+    copyright: "© 2025 IGSHS Birmensdorf. Alle Rechte vorbehalten.",
     links: [
-      { label: "Impressum", href: "#" },
-      { label: "Datenschutz", href: "#" },
+      { label: "Impressum", href: "/impressum" },
+      { label: "Datenschutz", href: "/datenschutz" },
     ],
   },
 };
