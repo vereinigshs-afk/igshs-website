@@ -27,59 +27,6 @@ export const siteContent = {
   },
   news: [
     {
-      id: 4,
-      date: "16.01.2026",
-      category: "Politik",
-      title: "Kennenlernen mit Felix Gless",
-      excerpt: "Treffen Sie Felix Gless persönlich! Am Freitag, 16. Januar 2026 um 18:00 Uhr im Gemeindezentrum Brüelmatt.",
-      content: `**Lernen Sie Felix Gless kennen!**
-
-Am **Freitag, 16. Januar 2026 um 18:00 Uhr** laden wir Sie herzlich ein, Felix Gless persönlich kennenzulernen. Die Veranstaltung findet im **Gemeindezentrum Brüelmatt** in Birmensdorf statt.
-
-**Über Felix Gless**
-
-Felix Gless ist 41 Jahre alt, verheiratet und Vater von zwei Kindern. Seit 2015 wohnt er mit seiner Familie in Birmensdorf und engagiert sich aktiv für die Gemeinschaft.
-
-**Beruflicher Hintergrund**
-
-- Studium der Rechtswissenschaften an der Universität Zürich
-- Rechtsanwalt mit eigener Kanzlei in Zürich
-- Spezialisiert auf Vertragsrecht und Gemeinderechtsfragen
-
-**Politische Erfahrung**
-
-- Seit 2019 Mitglied der Geschäftsprüfungskommission (GPK) Birmensdorf
-- Aktives Mitglied der FDP Birmensdorf
-- Engagement für transparente Verwaltung und bürgernahe Politik
-
-**Seine Schwerpunkte**
-
-1. **Bildung & Familien**: Qualitativ hochwertige Schulen und Kinderbetreuung
-2. **Verkehr & Infrastruktur**: Sichere Schulwege und nachhaltige Mobilität
-3. **Finanzen**: Verantwortungsvoller Umgang mit Steuergeldern
-4. **Lebensqualität**: Erhalt des dörflichen Charakters bei gleichzeitiger Entwicklung
-
-**Warum Felix Gless?**
-
-"Birmensdorf ist meine Heimat geworden. Ich möchte mich aktiv dafür einsetzen, dass unsere Gemeinde lebenswert bleibt – für Familien, Senioren und alle Generationen. Meine juristische Expertise und meine Erfahrung in der GPK helfen mir, komplexe Sachverhalte zu verstehen und pragmatische Lösungen zu finden."
-
-**Programm der Veranstaltung**
-
-- 18:00 Uhr: Begrüssung und Vorstellung
-- 18:15 Uhr: Felix Gless stellt seine Schwerpunkte vor
-- 18:45 Uhr: Offene Fragerunde
-- 19:30 Uhr: Apéro und persönliche Gespräche
-
-**Anmeldung**
-
-Eine Anmeldung ist nicht erforderlich, aber wir freuen uns über eine kurze Rückmeldung an vereinigshs@gmail.com für die Planung.
-
-**Gemeinsam für Birmensdorf!**
-
-Wir freuen uns auf Ihr Kommen und einen spannenden Austausch!`,
-      link: "/news/4",
-    },
-    {
       id: 5,
       date: "10.12.2025",
       category: "Gemeinde",

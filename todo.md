@@ -74,3 +74,8 @@
 - [x] Hero-Image mit "IGSHS Quartiere Collage.png" ersetzen
 - [x] Felix Gless Bild mit Version 2 ersetzen
 - [x] Statuten-PDF ins Projekt kopieren und verlinken (bereits erledigt)
+
+## Route /news/4 löschen & Button entfernen
+
+- [x] News-Artikel ID 4 aus content.ts entfernen
+- [x] "Mehr erfahren"-Button aus Felix Gless Wahlkampf-Bereich entfernen (war bereits entfernt)
