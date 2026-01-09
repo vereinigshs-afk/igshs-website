@@ -79,3 +79,10 @@
 
 - [x] News-Artikel ID 4 aus content.ts entfernen
 - [x] "Mehr erfahren"-Button aus Felix Gless Wahlkampf-Bereich entfernen (war bereits entfernt)
+
+## Aktuelles-Sektion aktualisieren
+
+- [x] Externe URLs prüfen und Inhalte extrahieren
+- [x] Kachel 1: Kandidierenden-Veranstaltung mit Detailseite erstellen
+- [x] Kacheln 2-5: Gemeinde-Events mit externen Links zu birmensdorf.ch
+- [x] Layout und Design unverändert lassen

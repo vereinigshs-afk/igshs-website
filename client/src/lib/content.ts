@@ -27,124 +27,78 @@ export const siteContent = {
   },
   news: [
     {
+      id: 1,
+      date: "16.01.2026",
+      category: "IGSHS",
+      title: "Öffentliche Kandidierenden-Veranstaltung Gemeinderatswahlen 2026",
+      excerpt: "Die IGSHS lädt zu einer öffentlichen Kandidierenden-Veranstaltung ein. Stellen Sie Ihre Fragen direkt und machen Sie sich Ihr eigenes Bild der Gemeinderatskandidatinnen und -kandidaten.",
+      content: `**Öffentliche Kandidierenden-Veranstaltung - Gemeinderatswahlen 2026**
+
+Die IGSHS lädt alle Bewohnerinnen und Bewohner von Birmensdorf herzlich ein, die Kandidatinnen und Kandidaten für den Gemeinderat persönlich kennenzulernen.
+
+**Wann und wo**
+
+Freitag, 16. Januar 2026, 18:00 Uhr
+Gemeindezentrum Birmensdorf
+
+**Warum diese Veranstaltung?**
+
+Kommunalpolitik betrifft unseren Alltag direkt – von Schulen über Sicherheit bis hin zu Verkehr und Lebensqualität. Mit dieser Veranstaltung schafft die IGSHS einen offenen Raum für Dialog zwischen Bürgerinnen, Bürgern und den Menschen, die sich für ein Amt im Gemeinderat bewerben.
+
+**Format**
+
+Die Gemeinderats-Kandidierenden sind an eigenen Tischen präsentiert, es ist kein Podium. Besucherinnen und Besucher können direkt auf sie zugehen, Fragen stellen und sie persönlich kennenlernen. So entsteht ein ungezwungener Austausch auf Augenhöhe.
+
+**Praktisches**
+
+Die Teilnahme ist kostenlos und unverbindlich. Für Kuchen und Getränke ist gesorgt.
+
+**Wichtiger Termin**
+
+08.03.2026: Gemeinderatswahlen
+
+Wir freuen uns auf einen informativen und lebendigen Abend mit Ihnen!`,
+      link: "/news/1",
+    },
+    {
+      id: 2,
+      date: "04.02.2026",
+      category: "Gemeinde",
+      title: "Schutz vor digitalisierter Kriminalität",
+      excerpt: "Die Kantonspolizei Zürich informiert über Gefahren im Internet und Schutz vor digitalisierter Kriminalität. Anschliessend gibt es Infos zum lokalen IT-Sicherheitsangebot.",
+      content: "",
+      link: "https://www.birmensdorf.ch/anlaesseaktuelles/7094807",
+      isExternal: true,
+    },
+    {
+      id: 3,
+      date: "07.02.2026",
+      category: "Gemeinde",
+      title: "Bibliothek - Buchstart",
+      excerpt: "Taucht gemeinsam spielerisch in die Welt der Bücher ein – mit Reimen, Fingerspielen, Kniereitern und Liedern. Für Babys und Kleinkinder bis Vorschulalter.",
+      content: "",
+      link: "https://www.birmensdorf.ch/anlaesseaktuelles/6615700",
+      isExternal: true,
+    },
+    {
+      id: 4,
+      date: "07.02.2026",
+      category: "Gemeinde",
+      title: "Kinderfasnacht",
+      excerpt: "Mitmach-Umzug mit Guggenmusik, anschliessend Maskenball und Kinderdisco mit Aerokids. Für die ganze Familie.",
+      content: "",
+      link: "https://www.birmensdorf.ch/anlaesseaktuelles/7082366",
+      isExternal: true,
+    },
+    {
       id: 5,
-      date: "10.12.2025",
+      date: "07.02.2026",
       category: "Gemeinde",
-      title: "Kinder - Basteln",
-      excerpt: "Weihnachtsgeschenke basteln im Gemeindezentrum. Für Kinder vom 1. Kindergarten bis zur 3. Sekundarschule.",
-      content: `**Kinder - Basteln**
-
-Am **Dienstag, 10. Dezember 2025 von 14:00 bis 17:00 Uhr** findet im Gemeindezentrum Freizeitraum ein Bastelnachmittag statt.
-
-**Beschreibung**
-
-Es werden verschiedene Weihnachtsgeschenke für Gotti, Götti, Grosseltern oder auch für dich selbst gebastelt. Bitte ältere Kleider anziehen.
-
-**Details**
-
-- **Ort**: Gemeindezentrum Freizeitraum, Dorfstrasse 10, 8903 Birmensdorf
-- **Voraussetzungen**: Kinder vom 1. Kindergarten bis zur 3. Sekundarschule
-- **Preis**: zwischen CHF 2.- und CHF 15.- (nur Barzahlung)
-- **Anmeldung**: Keine Anmeldung erforderlich
-
-**Kontakt**
-
-Brigitte Büchi
-brigitte.buechi@bluewin.ch`,
-      link: "/news/5",
-    },
-    {
-      id: 6,
-      date: "12.12.2025",
-      category: "Gemeinde",
-      title: "Eltern-Kind Weihnachtsbasteln",
-      excerpt: "Basteln Sie zusammen mit Ihrem Kind einfache Basteleien zu fairen Preisen im Familienzentrum.",
-      content: `**Eltern-Kind Weihnachtsbasteln**
-
-Am **Donnerstag, 12. Dezember 2025 von 14:00 bis 16:00 Uhr** lädt das Elternforum Birmensdorf zum gemeinsamen Basteln ein.
-
-**Beschreibung**
-
-Bastle zusammen mit dem eigenen Kind einfache Basteleien zu fairen Preisen (CHF 2.- bis 5.- pro Stück). Sämtliches Material ist vorhanden. Kaffee, Sirup und "en Zvieri" gibt es auch. Wie immer werdet ihr von einer "Bastelfee" (Anja Cimino) unterstützt.
-
-**Details**
-
-- **Ort**: Familienzentrum, Breitestrasse 13, 8903 Birmensdorf
-- **Organisator**: Elternforum Birmensdorf
-- **Preis**: CHF 2.- bis CHF 5.- pro Stück
-
-**Kontakt**
-
-Elternforum Birmensdorf
-info@elternforum-birmensdorf.ch`,
-      link: "/news/6",
-    },
-    {
-      id: 7,
-      date: "17.12.2025",
-      category: "Gemeinde",
-      title: "Kinder - Basteln & Geschichtenzeit",
-      excerpt: "Bastelnachmittag und Geschichtenzeit in der Bibliothek. Zwei tolle Angebote für Kinder an einem Tag!",
-      content: `**Kinder - Basteln & Geschichtenzeit**
-
-Am **Mittwoch, 17. Dezember 2025** finden gleich zwei Veranstaltungen für Kinder statt.
-
-**Bastelnachmittag (14:00 - 17:00 Uhr)**
-
-Im Gemeindezentrum Freizeitraum werden verschiedene Weihnachtsgeschenke für Gotti, Götti, Grosseltern oder auch für dich selbst gebastelt. Bitte ältere Kleider anziehen.
-
-- **Ort**: Gemeindezentrum Freizeitraum, Dorfstrasse 10
-- **Voraussetzungen**: Kinder vom 1. Kindergarten bis zur 3. Sekundarschule
-- **Preis**: CHF 2.- bis CHF 15.- (nur Barzahlung)
-- **Kontakt**: Brigitte Büchi, brigitte.buechi@bluewin.ch
-
-**Geschichtenzeit (14:30 - 15:00 Uhr)**
-
-Die Bibliothekarinnen lesen eine spannende Geschichte vor. Für alle Kinder, die gerne ein Bilderbuch lang zuhören.
-
-- **Ort**: Gemeinde- und Schulbibliothek, Dorfstrasse 10
-- **Preis**: Kostenlos
-- **Anmeldung**: Keine Anmeldung erforderlich
-- **Kontakt**: Maya Del Bono, bibliothek@birmensdorf.ch
-
-Alle sind herzlich willkommen!`,
-      link: "/news/7",
-    },
-    {
-      id: 8,
-      date: "04.01.2026",
-      category: "Gemeinde",
-      title: "Neujahrsapéro",
-      excerpt: "Traditioneller Neujahrsapéro der Gemeinde Birmensdorf. Alle Einwohnerinnen und Einwohner sind herzlich eingeladen.",
-      content: `**Neujahrsapéro 2026**
-
-Am **Samstag, 4. Januar 2026 um 11:00 Uhr** findet der traditionelle Neujahrsapéro der Gemeinde Birmensdorf statt.
-
-**Einladung**
-
-Die Gemeinde Birmensdorf lädt alle Einwohnerinnen und Einwohner herzlich zum Neujahrsapéro ein. Stossen Sie gemeinsam mit Ihren Nachbarn und der Gemeindeverwaltung auf das neue Jahr an!
-
-**Details**
-
-- **Ort**: Gemeindezentrum Brüelmatt, Dorfstrasse 10, 8903 Birmensdorf
-- **Datum**: Samstag, 4. Januar 2026
-- **Zeit**: 11:00 Uhr
-- **Eintritt**: Frei
-
-**Programm**
-
-- Begrüssung durch den Gemeinderat
-- Apéro mit Getränken und kleinen Snacks
-- Gelegenheit zum Austausch und Vernetzen
-
-**Kontakt**
-
-Gemeinde Birmensdorf
-Abteilung Präsidiales
-praesidiales@birmensdorf.ch
-
-Wir freuen uns auf Ihr Kommen und wünschen Ihnen einen guten Start ins neue Jahr!`,
-      link: "/news/8",
+      title: "Ortsmuseum Birmensdorf geöffnet",
+      excerpt: "Das Ortsmuseum Birmensdorf ist geöffnet und lädt zu einem Besuch ein. Entdecken Sie die Geschichte unserer Gemeinde.",
+      content: "",
+      link: "https://www.birmensdorf.ch/anlaesseaktuelles/7218140",
+      isExternal: true,
     },
   ],
   election: {

@@ -156,27 +156,42 @@ const NewsSection = () => (
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {siteContent.news.map((item) => (
-          <Link key={item.id} href={`/news/${item.id}`}>
+        {siteContent.news.map((item) => {
+          const isExternal = item.isExternal || false;
+          const linkProps = isExternal 
+            ? { href: item.link, target: "_blank", rel: "noopener noreferrer" }
+            : { href: item.link };
+          
+          const ArticleContent = (
             <article className="group cursor-pointer flex flex-col h-full bg-background border border-border p-6 hover:border-destructive transition-colors duration-300">
-            <div className="flex items-center justify-between text-xs font-mono text-muted-foreground mb-4">
-              <span>{item.date}</span>
-              <span className="uppercase tracking-wider text-destructive">{item.category}</span>
-            </div>
-            <h3 className="text-xl font-bold mb-3 group-hover:text-destructive transition-colors">
-              {item.title}
-            </h3>
-            <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
-              {item.excerpt}
-            </p>
-            <div className="mt-auto pt-4 border-t border-border/50">
-              <span className="text-sm font-medium flex items-center gap-2">
-                Weiterlesen <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-              </span>
-            </div>
-          </article>
-          </Link>
-        ))}
+              <div className="flex items-center justify-between text-xs font-mono text-muted-foreground mb-4">
+                <span>{item.date}</span>
+                <span className="uppercase tracking-wider text-destructive">{item.category}</span>
+              </div>
+              <h3 className="text-xl font-bold mb-3 group-hover:text-destructive transition-colors">
+                {item.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                {item.excerpt}
+              </p>
+              <div className="mt-auto pt-4 border-t border-border/50">
+                <span className="text-sm font-medium flex items-center gap-2">
+                  Weiterlesen <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </article>
+          );
+
+          return isExternal ? (
+            <a key={item.id} {...linkProps}>
+              {ArticleContent}
+            </a>
+          ) : (
+            <Link key={item.id} {...linkProps}>
+              {ArticleContent}
+            </Link>
+          );
+        })}
       </div>
     </div>
   </section>
