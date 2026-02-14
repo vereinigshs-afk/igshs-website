@@ -12,7 +12,7 @@ export const siteContent = {
     tagline: "Eine starke Stimme für unsere Quartiere",
   },
   navigation: [
-    { label: "Aktuelles", href: "#aktuelles" },
+    { label: "Veranstaltungen", href: "#veranstaltungen" },
     { label: "Schwerpunkte", href: "#schwerpunkte" },
     { label: "Über uns", href: "#about" },
     { label: "Kontakt", href: "#kontakt" },
@@ -30,75 +30,56 @@ export const siteContent = {
       id: 1,
       date: "16.01.2026",
       category: "IGSHS",
-      title: "Öffentliche Kandidierenden-Veranstaltung Gemeinderatswahlen 2026",
-      excerpt: "Die IGSHS lädt zu einer öffentlichen Kandidierenden-Veranstaltung ein. Stellen Sie Ihre Fragen direkt und machen Sie sich Ihr eigenes Bild der Gemeinderatskandidatinnen und -kandidaten.",
-      content: `**Öffentliche Kandidierenden-Veranstaltung - Gemeinderatswahlen 2026**
+      title: "Gemeinderatswahlen 2026: Ein voller Erfolg für direkte Begegnung",
+      excerpt: "Kandidierenden-Veranstaltung im Gemeindezentrum begeistert Bevölkerung – Marktplatz-Format ermöglicht authentischen Dialog auf Augenhöhe.",
+      content: `## Gemeinderatswahlen 2026: Ein voller Erfolg für direkte Begegnung
 
-Die IGSHS lädt alle Bewohnerinnen und Bewohner von Birmensdorf herzlich ein, die Kandidatinnen und Kandidaten für den Gemeinderat persönlich kennenzulernen.
+**Kandidierenden-Veranstaltung im Gemeindezentrum begeistert Bevölkerung**
 
-**Wann und wo**
+Am Freitag, 16. Januar 2026, organisierte die Interessengemeinschaft Stöcken, Haslen und Sternen (IGSHS) eine öffentliche Kandidierenden-Veranstaltung – und erzielte damit eine beeindruckende Resonanz in der Birmensdorfer Bevölkerung.
 
-Freitag, 16. Januar 2026, 18:00 Uhr
-Gemeindezentrum Birmensdorf
+### Ein Marktplatz für echte Gespräche
 
-**Warum diese Veranstaltung?**
+Das innovative Marktplatz-Format bewährte sich ausgezeichnet: Statt traditioneller Podiumsdiskussionen mit Redezeiten standen die kandidierenden Personen an eigenen Tischen zur Verfügung. Besucherinnen und Besucher konnten frei von Tisch zu Tisch wechseln, ihre Fragen im direkten Gespräch stellen und die Kandidat:innen persönlich kennenlernen.
 
-Kommunalpolitik betrifft unseren Alltag direkt – von Schulen über Sicherheit bis hin zu Verkehr und Lebensqualität. Mit dieser Veranstaltung schafft die IGSHS einen offenen Raum für Dialog zwischen Bürgerinnen, Bürgern und den Menschen, die sich für ein Amt im Gemeinderat bewerben.
+Dieses Format schuf genau das, was demokratische Partizipation braucht: **echte Begegnung auf Augenhöhe**, Offenheit ohne Parteienpolitik, und die Möglichkeit, sich ein informiertes Bild zu machen – vor der Wahl am 8. März 2026.
 
-**Format**
+### Großes Interesse und häufige Wiederholungswünsche
 
-Die Gemeinderats-Kandidierenden sind an eigenen Tischen präsentiert, es ist kein Podium. Besucherinnen und Besucher können direkt auf sie zugehen, Fragen stellen und sie persönlich kennenlernen. So entsteht ein ungezwungener Austausch auf Augenhöhe.
+Die Veranstaltung war überraschend gut besucht und wurde von den Besuchern ausgesprochen positiv aufgenommen. Viele äußerten mehrfach den Wunsch, diesen Anlass zu wiederholen. **Dieses Feedback zeigt**: Die Birmensdorfer Bevölkerung verlangt nach dieser Art von direktem Dialog mit ihren politischen Vertreterinnen und Vertretern.
 
-**Praktisches**
+Auch die Gemeinde würdigte den Anlass und zeigte sich offen – die IGSHS informierte die Abteilung Präsidiales entsprechend über die Idee einer Fortsetzung. Leider teilte die Gemeinde mit, dass sie derzeit keine eigene Veranstaltung plane und an weiteren von der IGSHS organisierten Veranstaltungen nicht beteiligt sein könne.
 
-Die Teilnahme ist kostenlos und unverbindlich. Für Kuchen und Getränke ist gesorgt.
+### Ein Beispiel gelebter Zivilgesellschaft
 
-**Wichtiger Termin**
+Trotz dieser Rückmeldung ist die IGSHS stolz auf das, was erreicht wurde: Ein parteiunabhängiger, von der Basis organisierter Anlass, der hunderte Bürgerinnen und Bürgern die Möglichkeit gab, ihre Gemeinde mitzugestalten – durch Information, Dialog und eigene Entscheidungsfindung.
 
-08.03.2026: Gemeinderatswahlen
-
-Wir freuen uns auf einen informativen und lebendigen Abend mit Ihnen!`,
+Das ist Bürgerbeteiligung in ihrer reinsten Form.`,
       link: "/news/1",
     },
     {
       id: 2,
-      date: "04.02.2026",
-      category: "Gemeinde",
-      title: "Schutz vor digitalisierter Kriminalität",
-      excerpt: "Die Kantonspolizei Zürich informiert über Gefahren im Internet und Schutz vor digitalisierter Kriminalität. Anschliessend gibt es Infos zum lokalen IT-Sicherheitsangebot.",
-      content: "",
-      link: "https://www.birmensdorf.ch/anlaesseaktuelles/7094807",
-      isExternal: true,
-    },
-    {
-      id: 3,
-      date: "07.02.2026",
-      category: "Gemeinde",
-      title: "Bibliothek - Buchstart",
-      excerpt: "Taucht gemeinsam spielerisch in die Welt der Bücher ein – mit Reimen, Fingerspielen, Kniereitern und Liedern. Für Babys und Kleinkinder bis Vorschulalter.",
-      content: "",
-      link: "https://www.birmensdorf.ch/anlaesseaktuelles/6615700",
-      isExternal: true,
-    },
-    {
-      id: 4,
-      date: "07.02.2026",
-      category: "Gemeinde",
-      title: "Kinderfasnacht",
-      excerpt: "Mitmach-Umzug mit Guggenmusik, anschliessend Maskenball und Kinderdisco mit Aerokids. Für die ganze Familie.",
-      content: "",
-      link: "https://www.birmensdorf.ch/anlaesseaktuelles/7082366",
-      isExternal: true,
-    },
-    {
-      id: 5,
-      date: "07.02.2026",
-      category: "Gemeinde",
-      title: "Ortsmuseum Birmensdorf geöffnet",
-      excerpt: "Das Ortsmuseum Birmensdorf ist geöffnet und lädt zu einem Besuch ein. Entdecken Sie die Geschichte unserer Gemeinde.",
-      content: "",
-      link: "https://www.birmensdorf.ch/anlaesseaktuelles/7218140",
-      isExternal: true,
+      date: "21.06.2026",
+      category: "IGSHS",
+      title: "Quartierfest 2026: Ein Fest für Begegnung, Freude und Austausch",
+      excerpt: "Am längsten Tag des Jahres lädt die IGSHS alle Bewohner von Stöcken, Haslen und Sternen zu einem großen Quartierfest ein – zum Feiern, Begegnen und Zusammenhalt erleben.",
+      content: `## Quartierfest 2026: Ein Fest für Begegnung, Freude und Austausch
+
+**Markiert den längsten Tag des Jahres – 21. Juni 2026**
+
+Im Sinne ihrer Mission als parteiunabhängige Interessengemeinschaft plant die **IGSHS** für den kommenden Sommer ein Highlight: das erste **Quartierfest 2026**.
+
+Am **längsten Tag des Jahres – Sonntag, 21. Juni 2026** – laden wir alle Bewohnerinnen und Bewohner der Quartiere **Stöcken, Haslen und Sternen** zu einem großen Fest ein. Ein Tag voller:
+
+- 🎉 **Freude und Feiern** – gemeinsam statt nebeneinander
+- 🤝 **Begegnung und Austausch** – die Quartiere näher zusammenbringen
+- 💬 **Dialog** – über das hinaus, was uns trennt, über das, was uns verbindet
+- 🎪 **Familie, Musik, Kulinarisches und viel mehr**
+
+Ein Tag, der unsere Quartiere zeigt, dass wir **eine Gemeinschaft** sind – ob beim Schulweg, bei der Ortsentwicklung oder bei den Herausforderungen unserer Zeit.
+
+**Mehr Informationen folgen in Kürze.**`,
+      link: "/news/2",
     },
   ],
   election: {

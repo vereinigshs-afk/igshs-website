@@ -136,16 +136,16 @@ const Hero = () => (
 );
 
 const NewsSection = () => (
-  <section id="aktuelles" className="py-24 bg-slate-50 scroll-mt-20">
+  <section id="veranstaltungen" className="py-24 bg-slate-50 scroll-mt-20">
     <div className="container">
       <div className="flex items-baseline justify-between mb-16 border-b-2 border-foreground pb-4">
-        <h2 className="text-3xl font-bold tracking-tight">Aktuelles</h2>
+        <h2 className="text-3xl font-bold tracking-tight">Veranstaltungen</h2>
         <a 
-          href="#aktuelles" 
+          href="#veranstaltungen" 
           className="text-sm font-medium hover:text-destructive flex items-center gap-1 cursor-pointer"
           onClick={(e) => {
             e.preventDefault();
-            const element = document.getElementById('aktuelles');
+            const element = document.getElementById('veranstaltungen');
             if (element) {
               element.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
