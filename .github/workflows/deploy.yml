@@ -28,6 +28,7 @@ jobs:
         host: ${{ secrets.HOSTINGER_HOST }}
         username: ${{ secrets.HOSTINGER_USER }}
         password: ${{ secrets.HOSTINGER_PASSWORD }}
+        port: 65002                              # <--- DAS IST NEU!
         script: |
           cd /home/igshs-website
           git pull origin main
