@@ -1,0 +1,43 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+    
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22'
+        cache: 'pnpm'
+    
+    - name: Deploy via SSH
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOSTINGER_HOST }}
+        username: ${{ secrets.HOSTINGER_USER }}
+        password: ${{ secrets.HOSTINGER_PASSWORD }}
+        script: |
+          cd /home/igshs-website
+          git pull origin main
+          pnpm install --frozen-lockfile
+          pnpm run build
+          pm2 restart igshs-website || pm2 start ecosystem.config.cjs
+          
+    - name: Notify Telegram
+      if: always()
+      run: |
+        curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage \
+          -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
+          -d text="✅ Website deployed!" || echo "Deployment complete"
