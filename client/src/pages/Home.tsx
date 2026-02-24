@@ -373,15 +373,12 @@ const ContactSection = () => {
     setSubmitSuccess(false);
 
     try {
-      // Build the URL with the form data as a query parameter in the correct tRPC format
-      const encodedInput = encodeURIComponent(JSON.stringify(formData));
-      const url = `/api/trpc/contact.submit?input=${encodedInput}`;
-      
-      const response = await fetch(url, {
+      const response = await fetch('/api/trpc/contact.submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
