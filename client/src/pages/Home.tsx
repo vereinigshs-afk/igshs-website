@@ -373,24 +373,35 @@ const ContactSection = () => {
     setSubmitSuccess(false);
 
     try {
-      const response = await fetch('/api/trpc/contact.submit', {
+      // Build the URL with the form data as a query parameter in the correct tRPC format
+      const encodedInput = encodeURIComponent(JSON.stringify(formData));
+      const url = `/api/trpc/contact.submit?input=${encodedInput}`;
+      
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          0: {
-            json: formData,
-          },
-        }),
       });
 
       const data = await response.json();
 
       if (data.error) {
-        setSubmitError(
-          data.error.json?.message || 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.'
-        );
+        // Parse error message
+        let errorMsg = 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.';
+        if (data.error.json?.message) {
+          errorMsg = data.error.json.message;
+        } else if (typeof data.error.json?.message === 'string') {
+          try {
+            const parsed = JSON.parse(data.error.json.message);
+            if (Array.isArray(parsed) && parsed[0]?.message) {
+              errorMsg = parsed[0].message;
+            }
+          } catch (e) {
+            errorMsg = data.error.json?.message || errorMsg;
+          }
+        }
+        setSubmitError(errorMsg);
       } else if (data.result?.data?.success) {
         setSubmitSuccess(true);
         setFormData({
@@ -402,6 +413,17 @@ const ContactSection = () => {
           privacyAccepted: false,
         });
         setUploadedFile(null);
+        // Clear form fields
+        setTimeout(() => {
+          const inputs = document.querySelectorAll('#kontakt input, #kontakt textarea, #kontakt select');
+          inputs.forEach(input => {
+            if ((input as HTMLInputElement).type === 'checkbox') {
+              (input as HTMLInputElement).checked = false;
+            } else if ((input as HTMLInputElement).type === 'text' || (input as HTMLInputElement).type === 'email') {
+              (input as HTMLInputElement).value = '';
+            }
+          });
+        }, 500);
       }
     } catch (error) {
       setSubmitError('Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung.');
