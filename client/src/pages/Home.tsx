@@ -313,8 +313,31 @@ const AboutSection = () => (
 );
 
 const ContactSection = () => {
+  const [formData, setFormData] = React.useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    category: '',
+    message: '',
+    privacyAccepted: false,
+  });
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitError, setSubmitError] = React.useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = React.useState(false);
   const [uploadedFile, setUploadedFile] = React.useState<File | null>(null);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { checked } = e.target;
+    setFormData(prev => ({ ...prev, privacyAccepted: checked }));
+  };
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -340,6 +363,51 @@ const ContactSection = () => {
     setUploadedFile(null);
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError(null);
+    setSubmitSuccess(false);
+
+    try {
+      const response = await fetch('/api/trpc/contact.submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          0: {
+            json: formData,
+          },
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        setSubmitError(
+          data.error.json?.message || 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.'
+        );
+      } else if (data.result?.data?.success) {
+        setSubmitSuccess(true);
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          category: '',
+          message: '',
+          privacyAccepted: false,
+        });
+        setUploadedFile(null);
+      }
+    } catch (error) {
+      setSubmitError('Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung.');
+      console.error('Contact form error:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -381,40 +449,106 @@ const ContactSection = () => {
       </div>
       
       <div className="md:col-span-7 bg-white p-8 border border-border shadow-sm">
-        <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Name</label>
-              <Input placeholder="Ihr Name" className="rounded-none border-slate-300 focus-visible:ring-destructive" />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium">E-Mail</label>
-              <Input type="email" placeholder="ihre@email.ch" className="rounded-none border-slate-300 focus-visible:ring-destructive" />
-            </div>
+        {submitSuccess && (
+          <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded">
+            <p className="text-sm font-medium text-green-800">
+              ✓ Vielen Dank! Ihre Nachricht wurde erfolgreich versendet.
+            </p>
           </div>
-          
+        )}
+        {submitError && (
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded">
+            <p className="text-sm font-medium text-red-800">
+              ✗ {submitError}
+            </p>
+          </div>
+        )}
+        
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          {/* Vorname - new field */}
           <div className="space-y-2">
-            <label className="text-sm font-medium">Kategorie</label>
-            <Select>
-              <SelectTrigger className="rounded-none border-slate-300 focus:ring-destructive">
-                <SelectValue placeholder="Bitte wählen" />
-              </SelectTrigger>
-              <SelectContent>
-                {siteContent.contact.form.categories.map((cat) => (
-                  <SelectItem key={cat} value={cat}>{cat}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <label className="text-sm font-medium">Vorname *</label>
+            <Input 
+              type="text"
+              name="firstName"
+              placeholder="Ihr Vorname"
+              value={formData.firstName}
+              onChange={handleInputChange}
+              required
+              className="rounded-none border-slate-300 focus-visible:ring-destructive" 
+            />
           </div>
-          
+
+          {/* Name */}
           <div className="space-y-2">
-            <label className="text-sm font-medium">Nachricht</label>
-            <Textarea placeholder="Ihre Nachricht an uns..." className="min-h-[150px] rounded-none border-slate-300 focus-visible:ring-destructive" />
+            <label className="text-sm font-medium">Name *</label>
+            <Input 
+              type="text"
+              name="lastName"
+              placeholder="Ihr Name"
+              value={formData.lastName}
+              onChange={handleInputChange}
+              required
+              className="rounded-none border-slate-300 focus-visible:ring-destructive" 
+            />
+          </div>
+
+          {/* E-Mail - moved here */}
+          <div className="space-y-2">
+            <label className="text-sm font-medium">E-Mail *</label>
+            <Input 
+              type="email"
+              name="email"
+              placeholder="ihre@email.ch"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+              className="rounded-none border-slate-300 focus-visible:ring-destructive" 
+            />
           </div>
           
+          {/* Kategorie */}
+          <div className="space-y-2">
+            <label className="text-sm font-medium">Kategorie *</label>
+            <select 
+              name="category"
+              value={formData.category}
+              onChange={handleInputChange}
+              required
+              className="w-full px-3 py-2 border border-slate-300 rounded-none focus:outline-none focus:ring-2 focus:ring-destructive"
+            >
+              <option value="">Bitte wählen</option>
+              {siteContent.contact.form.categories.map((cat) => (
+                <option key={cat} value={cat}>{cat}</option>
+              ))}
+            </select>
+          </div>
+          
+          {/* Nachricht */}
+          <div className="space-y-2">
+            <label className="text-sm font-medium">Nachricht *</label>
+            <Textarea 
+              name="message"
+              placeholder="Ihre Nachricht an uns..."
+              value={formData.message}
+              onChange={handleInputChange}
+              required
+              className="min-h-[150px] rounded-none border-slate-300 focus-visible:ring-destructive" 
+            />
+          </div>
+          
+          {/* Datenschutz & Submit */}
           <div className="space-y-4 pt-4">
             <div className="flex items-center gap-2">
-              <input type="checkbox" id="privacy-checkbox" required className="h-4 w-4 rounded border-slate-300 text-destructive focus:ring-destructive" />
+              <input 
+                type="checkbox" 
+                id="privacy-checkbox"
+                name="privacyAccepted"
+                checked={formData.privacyAccepted}
+                onChange={handleCheckboxChange}
+                required
+                className="h-4 w-4 rounded border-slate-300 text-destructive focus:ring-destructive" 
+              />
               <label htmlFor="privacy-checkbox" className="text-sm text-muted-foreground">
                 Ich habe die{" "}
                 <a href="/datenschutz" target="_blank" className="text-destructive hover:underline">
@@ -455,8 +589,12 @@ const ContactSection = () => {
               >
                 <Upload className="h-4 w-4" /> Datei anhängen
               </Button>
-              <Button type="submit" className="bg-destructive hover:bg-destructive/90 text-white rounded-none px-8">
-                Absenden
+              <Button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="bg-destructive hover:bg-destructive/90 text-white rounded-none px-8 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? 'Wird versendet...' : 'Absenden'}
               </Button>
             </div>
           </div>

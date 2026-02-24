@@ -30,6 +30,14 @@ export interface MembershipEmailData {
   email: string;
 }
 
+export interface ContactEmailData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  category: string;
+  message: string;
+}
+
 /**
  * Send membership application email to vereinigshs@gmail.com
  */
@@ -78,6 +86,62 @@ Diese E-Mail wurde automatisch generiert von der IGSHS Website.
     return true;
   } catch (error) {
     console.error("[Mailer] Failed to send membership email:", error);
+    return false;
+  }
+}
+
+/**
+ * Send contact form email to vereinigshs@gmail.com
+ */
+export async function sendContactEmail(data: ContactEmailData): Promise<boolean> {
+  try {
+    const transporter = getTransporter();
+
+    // Check if Gmail credentials are configured
+    if (!process.env.IGSHS_GMAIL_USER || !process.env.IGSHS_GMAIL_PASSWORD) {
+      console.warn("[Mailer] Gmail credentials not configured in environment");
+      return false;
+    }
+
+    const emailContent = `
+Neue Kontaktformular-Anfrage eingegangen:
+
+Name: ${data.firstName} ${data.lastName}
+E-Mail: ${data.email}
+Kategorie: ${data.category}
+
+Nachricht:
+${data.message}
+
+---
+Diese E-Mail wurde automatisch generiert von der IGSHS Website.
+    `.trim();
+
+    const mailOptions = {
+      from: process.env.IGSHS_GMAIL_USER,
+      to: "vereinigshs@gmail.com",
+      replyTo: data.email,
+      subject: `Kontaktformular: ${data.category} von ${data.firstName} ${data.lastName}`,
+      text: emailContent,
+      html: `
+        <h2>Neue Kontaktformular-Anfrage</h2>
+        <p><strong>Name:</strong> ${escapeHtml(data.firstName)} ${escapeHtml(data.lastName)}</p>
+        <p><strong>E-Mail:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>
+        <p><strong>Kategorie:</strong> ${escapeHtml(data.category)}</p>
+        <p><strong>Nachricht:</strong></p>
+        <div style="background-color: #f5f5f5; padding: 1rem; border-left: 4px solid #dc2626;">
+          <pre style="white-space: pre-wrap; word-wrap: break-word; margin: 0;">${escapeHtml(data.message)}</pre>
+        </div>
+        <hr>
+        <p><small>Diese E-Mail wurde automatisch generiert von der IGSHS Website.</small></p>
+      `,
+    };
+
+    const result = await transporter.sendMail(mailOptions);
+    console.log("[Mailer] Contact email sent:", result.response);
+    return true;
+  } catch (error) {
+    console.error("[Mailer] Failed to send contact email:", error);
     return false;
   }
 }
