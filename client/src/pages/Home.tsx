@@ -373,12 +373,20 @@ const ContactSection = () => {
     setSubmitSuccess(false);
 
     try {
-      const response = await fetch('/api/trpc/contact.submit', {
+      const params = new URLSearchParams({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        category: formData.category,
+        message: formData.message,
+        privacyAccepted: String(formData.privacyAccepted),
+      });
+      
+      const response = await fetch('/api/trpc/contact.submit?' + params.toString(), {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
