@@ -9,6 +9,23 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: 📋 Checking secrets configuration
+        run: |
+          echo "🔍 Verifying SSH secrets..."
+          if [ -z "${{ secrets.HOSTINGER_SSH_HOST }}" ]; then
+            echo "❌ ERROR: HOSTINGER_SSH_HOST secret is not set!"
+            exit 1
+          fi
+          if [ -z "${{ secrets.HOSTINGER_SSH_USER }}" ]; then
+            echo "❌ ERROR: HOSTINGER_SSH_USER secret is not set!"
+            exit 1
+          fi
+          if [ -z "${{ secrets.HOSTINGER_SSH_PASSWORD }}" ]; then
+            echo "❌ ERROR: HOSTINGER_SSH_PASSWORD secret is not set!"
+            exit 1
+          fi
+          echo "✓ All SSH secrets are configured"
+
       - name: 📥 Deploying to Hostinger
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -16,7 +33,29 @@ jobs:
           username: ${{ secrets.HOSTINGER_SSH_USER }}
           password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
           port: 22
-          script: bash /root/deploy.sh
+          script: |
+            echo "🚀 Starting deployment..."
+            cd /root/igshs-website || { echo "❌ Directory not found"; exit 1; }
+            echo "✓ In correct directory"
+            bash /root/deploy.sh || { echo "❌ Deployment script failed"; exit 1; }
+            echo "✅ Deployment completed"
+          script_stop: true
+          timeout: 300s
 
       - name: ✅ Deployment Complete
-        run: echo "✅ IGSHS Website deployed successfully"
+        if: success()
+        run: echo "✅ IGSHS Website deployed successfully at $(date)"
+        
+      - name: ❌ Deployment Failed
+        if: failure()
+        run: |
+          echo "❌ GitHub Actions deployment failed"
+          echo ""
+          echo "To fix this:"
+          echo "1. Go to: https://github.com/vereinigshs-afk/igshs-website/settings/secrets/actions"
+          echo "2. Set these secrets:"
+          echo "   • HOSTINGER_SSH_HOST = 76.13.148.161"
+          echo "   • HOSTINGER_SSH_USER = root"
+          echo "   • HOSTINGER_SSH_PASSWORD = <your_password>"
+          echo ""
+          echo "Then re-run the workflow from the Actions tab"
