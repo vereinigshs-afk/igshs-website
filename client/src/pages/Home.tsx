@@ -13,6 +13,8 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Upload, CheckCircle2, School, Building2, Car, Users, FileText, X } from "lucide-react";
 import React, { useState } from "react";
+import { trpc } from "@/lib/trpc";
+import { toast } from "sonner";
 
 // --- Components ---
 
@@ -366,76 +368,37 @@ const ContactSection = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const submitMutation = trpc.contact.submit.useMutation({
+    onSuccess: () => {
+      setSubmitSuccess(true);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        category: '',
+        message: '',
+        privacyAccepted: false,
+      });
+      setUploadedFile(null);
+      toast.success("Vielen Dank! Ihre Nachricht wurde erfolgreich übermittelt.");
+    },
+    onError: (error) => {
+      setSubmitError(error.message || 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+      toast.error(`Fehler: ${error.message}`);
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError(null);
     setSubmitSuccess(false);
 
-    try {
-      const params = new URLSearchParams({
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        category: formData.category,
-        message: formData.message,
-        privacyAccepted: String(formData.privacyAccepted),
-      });
-      
-      const response = await fetch('/api/trpc/contact.submit?' + params.toString(), {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      });
-
-      const data = await response.json();
-
-      if (data.error) {
-        // Parse error message
-        let errorMsg = 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.';
-        if (data.error.json?.message) {
-          errorMsg = data.error.json.message;
-        } else if (typeof data.error.json?.message === 'string') {
-          try {
-            const parsed = JSON.parse(data.error.json.message);
-            if (Array.isArray(parsed) && parsed[0]?.message) {
-              errorMsg = parsed[0].message;
-            }
-          } catch (e) {
-            errorMsg = data.error.json?.message || errorMsg;
-          }
-        }
-        setSubmitError(errorMsg);
-      } else if (data.result?.data?.success) {
-        setSubmitSuccess(true);
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          category: '',
-          message: '',
-          privacyAccepted: false,
-        });
-        setUploadedFile(null);
-        // Clear form fields
-        setTimeout(() => {
-          const inputs = document.querySelectorAll('#kontakt input, #kontakt textarea, #kontakt select');
-          inputs.forEach(input => {
-            if ((input as HTMLInputElement).type === 'checkbox') {
-              (input as HTMLInputElement).checked = false;
-            } else if ((input as HTMLInputElement).type === 'text' || (input as HTMLInputElement).type === 'email') {
-              (input as HTMLInputElement).value = '';
-            }
-          });
-        }, 500);
-      }
-    } catch (error) {
-      setSubmitError('Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung.');
-      console.error('Contact form error:', error);
-    } finally {
+    submitMutation.mutate(formData);
+    
+    setTimeout(() => {
       setIsSubmitting(false);
-    }
+    }, 100);
   };
 
   return (
