@@ -9,23 +9,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 📋 Checking secrets configuration
-        run: |
-          echo "🔍 Verifying SSH secrets..."
-          if [ -z "${{ secrets.HOSTINGER_SSH_HOST }}" ]; then
-            echo "❌ ERROR: HOSTINGER_SSH_HOST secret is not set!"
-            exit 1
-          fi
-          if [ -z "${{ secrets.HOSTINGER_SSH_USER }}" ]; then
-            echo "❌ ERROR: HOSTINGER_SSH_USER secret is not set!"
-            exit 1
-          fi
-          if [ -z "${{ secrets.HOSTINGER_SSH_PASSWORD }}" ]; then
-            echo "❌ ERROR: HOSTINGER_SSH_PASSWORD secret is not set!"
-            exit 1
-          fi
-          echo "✓ All SSH secrets are configured"
-
       - name: 📥 Deploying to Hostinger
         uses: appleboy/ssh-action@v1.0.0
         with:
